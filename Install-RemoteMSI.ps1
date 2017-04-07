@@ -7,8 +7,8 @@ Param(
         ValueFromPipelineByPropertyName=$true
         )
     ]
-    [Alias('Name')]
-    [string[]]$ComputerName,
+    [Alias('ComputerName')]
+    [string[]]$Name,
     [Parameter(
         Mandatory=$true,
         Position=1
@@ -19,7 +19,7 @@ Param(
 
 $InstallFilePath = (get-childitem $InstallerPath).directoryName
 $InstallFile = (get-childitem $InstallerPath).name
-foreach ($computer in $computerName){
+foreach ($computer in $Name){
     Write-Output "Installing: $InstallFilePath\$installFile to $Computer"
     if(test-wsman $Computer -ErrorAction Ignore){
         Write-Verbose "Begin Copy Block"
