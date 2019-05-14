@@ -1,4 +1,3 @@
-
 Function New-ConEmuTab {
     <#
     .SYNOPSIS
